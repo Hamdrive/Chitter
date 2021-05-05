@@ -14,10 +14,12 @@ import ChitBtn from './ChitBtn';
 
 function Sidebar() {
     return (
-      <div>
-        <GiSquirrel />
+      <div className=" bg-yellow-300 ">
+        <GiSquirrel className="my-9" />
 
-        <SidebarComponent icon={<BiHomeAlt />} text={"Home"} />
+        <div className="my-9">
+          <SidebarComponent icon={<BiHomeAlt />} text={"Home"} />
+        </div>
         <SidebarComponent icon={<BiHash />} text={"Explore"} />
         <SidebarComponent icon={<BiBell />} text={"Notifications"} />
         <SidebarComponent icon={<BiMessageSquareDetail />} text={"Messages"} />
