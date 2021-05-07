@@ -18,6 +18,9 @@ module.exports = {
       ml: {
         18: "4.5rem",
       },
+      screens:{
+        lg2 : "1152px",
+      }
     },
   },
   variants: {
