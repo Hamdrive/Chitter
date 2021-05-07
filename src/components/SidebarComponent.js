@@ -1,12 +1,17 @@
-import React from 'react'
+import React from "react";
+import { IconContext } from "react-icons";
 
-function SidebarComponent({icon, text}) {
-    return (
-        <div>
-            {icon}
-            <h1>{text}</h1>
-        </div>
-    )
+function SidebarComponent({ icon, text }) {
+  return (
+    <div className="flex flex-row ">
+      <div className="py-2 px-4 flex flex-row bg-red-500 rounded-full bg-opacity-0 cursor-pointer hover:bg-opacity-50">
+        <IconContext.Provider value={{ size: "2rem" }}>
+          <h1 className="h-8 w-8 mx-2">{icon}</h1>
+        </IconContext.Provider>
+        <h1 className="mx-2 text-xl font-bold">{text}</h1>
+      </div>
+    </div>
+  );
 }
 
-export default SidebarComponent
+export default SidebarComponent;
