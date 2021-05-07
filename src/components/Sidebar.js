@@ -38,7 +38,7 @@ function Sidebar() {
         <SidebarComponent icon={<BiUser />} text={"Profile"} />
       </div>
 
-      <div className="my-2">
+      <div className="my-2 mt-6">
         <ChitBtn icon={<GiAcorn />} />
       </div>
     </div>
