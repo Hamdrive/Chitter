@@ -5,7 +5,7 @@ function ChitBoxTop() {
   return (
     <div className="border-b-8 border-gray-400">
       <form className="mx-8">
-        <div className="flex flex-row border-b-2 border-gray-400">
+        <div className="flex flex-row border-b-2 border-t-2 border-gray-400 py-2">
           <img
             src="./images/Ham_dp.jpg"
             alt=""
@@ -14,7 +14,7 @@ function ChitBoxTop() {
           <input
             type="text"
             placeholder="Whats happening?"
-            className="w-full h-20 pl-6 mb-12 outline-none text-2xl"
+            className="w-full pl-6  outline-none text-2xl" //mb-12
           />
         </div>
         <div className="my-2 w-24 ml-auto">

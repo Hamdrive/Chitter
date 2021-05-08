@@ -15,8 +15,8 @@ import ChitBtn from "./ChitBtn";
 function Sidebar() {
   return (
     <div className="  text-lg ">
-      <div className="my-3 cursor-pointer xl:my-2 md:mx-auto lg2:w-20 lg:w-16 md:w-14">
-        <GiSquirrel className=" h-8 w-8 mx-6" />
+      <div className="my-3 cursor-pointer xl:my-2 md:mx-auto lg2:w-12 lg:w-10 md:w-8">
+        <GiSquirrel className=" lg2:h-12 lg2:w-12 lg:h-10 lg:w-10 md:h-8 md:w-8" />
       </div>
 
       <div className="my-2">
