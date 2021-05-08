@@ -14,8 +14,8 @@ import ChitBtn from "./ChitBtn";
 
 function Sidebar() {
   return (
-    <div className=" bg-yellow-300 text-lg">
-      <div className="my-3 cursor-pointer xl:ml-2 md:mx-auto lg2:w-20 lg:w-16 md:w-20">
+    <div className="  text-lg ">
+      <div className="my-3 cursor-pointer xl:my-2 md:mx-auto lg2:w-20 lg:w-16 md:w-14">
         <GiSquirrel className=" h-8 w-8 mx-6" />
       </div>
 
@@ -38,7 +38,7 @@ function Sidebar() {
         <SidebarComponent icon={<BiUser />} text={"Profile"} />
       </div>
 
-      <div className="my-2 mt-6">
+      <div className="my-2 mt-6 ">
         <ChitBtn icon={<GiAcorn />} />
       </div>
     </div>
