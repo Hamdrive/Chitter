@@ -10,7 +10,7 @@ import {
   BiBookmark,
   BiUser,
 } from "react-icons/bi";
-import ChitBtn from "./ChitBtn";
+import ChitBtn from "./CheetBtn";
 
 function Sidebar() {
   return (

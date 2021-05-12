@@ -1,5 +1,5 @@
 import './App.css';
-import MainFeed from './components/MainFeed';
+import MainFeed from './components/Feed';
 import Sidebar from './components/Sidebar';
 import Stories from './components/Stories';
 

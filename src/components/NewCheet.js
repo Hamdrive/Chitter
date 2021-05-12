@@ -1,5 +1,5 @@
 import React from "react";
-import ChitBtn from "./ChitBtn";
+import ChitBtn from "./CheetBtn";
 
 function ChitBoxTop() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import ChitBoxTop from './ChitBoxTop'
-import MainFeedChits from './MainFeedChits'
+import ChitBoxTop from './NewCheet'
+import MainFeedChits from './Cheets'
 
 function MainFeed() {
     return (
