@@ -18,13 +18,13 @@ module.exports = {
       ml: {
         18: "4.5rem",
       },
-      screens:{
-        lg2 : "1152px",
-      }
+      screens: {
+        lg2: "1152px",
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
