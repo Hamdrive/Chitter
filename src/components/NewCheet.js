@@ -9,7 +9,7 @@ function ChitBoxTop() {
           <img
             src="./images/Ham_dp.jpg"
             alt=""
-            className="w-16 h-16 rounded-full"
+            className="w-14 h-14 rounded-full"
           />
           <input
             type="text"
