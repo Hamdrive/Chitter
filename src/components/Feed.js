@@ -5,7 +5,7 @@ import Cheets from './Cheets'
 function MainFeed() {
     return (
       <div>
-        <div className="h-12 text-2xl font-bold flex items-center mx-8 sticky top-0">
+        <div className="h-12 text-2xl font-bold flex items-center pl-8 sticky top-0 border-b-2 border-gray-400 bg-white">
           <h1>Home</h1>
         </div>
         <NewCheet />
