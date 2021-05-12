@@ -2,7 +2,7 @@ import React from "react";
 import { GoVerified } from "react-icons/go";
 import { FaRegComment, FaRetweet, FaRegHeart } from "react-icons/fa";
 
-function Cheets({ displayName, userName, isVerified, timestamp, content }) {
+function Cheets({ displayName, userName, isVerified, timestamp, content, media }) {
   return (
     <div className=" mx-8 py-4">
       <img
@@ -31,7 +31,7 @@ function Cheets({ displayName, userName, isVerified, timestamp, content }) {
         <div className="mb-3">
           <p className="font-normal">{content}</p>
         </div>
-        <img src="./images/giphy.gif" alt="" className="rounded-2xl " />
+        {media ? <img src={media} alt="" className="rounded-2xl h-72 w-11/12 " /> : <></>}
         <div className="flex justify-around mt-3 text-xl">
           <div className="bg-green-500 bg-opacity-0 hover:bg-opacity-50 cursor-pointer duration-100 p-2 rounded-full">
             <FaRegComment />
