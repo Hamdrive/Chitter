@@ -3,7 +3,7 @@ import {BiSearch} from "react-icons/bi"
 
 function Search() {
     return (
-      <div className="flex flex-row items-center w-10/12 h-12 mt-1 ml-2 bg-gray-200 focus-within:bg-gray-300 rounded-full text-lg font-medium">
+      <div className="flex flex-row items-center w-10/12 h-12 mt-1 mx-4 bg-gray-200 focus-within:bg-gray-300 rounded-full text-lg font-medium">
         <BiSearch className="ml-6" />
         <input
           type="search"
