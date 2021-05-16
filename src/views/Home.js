@@ -1,7 +1,6 @@
-import "./App.css";
-import MainFeed from "./components/Feed";
-import Sidebar from "./components/Sidebar";
-import Stories from "./components/Stories";
+import MainFeed from "../components/Feed";
+import Sidebar from "../components/Sidebar";
+import Stories from "../components/Stories";
 
 function App() {
   return (

@@ -19,7 +19,7 @@ function Sidebar() {
       <div className=" bg-green-500 rounded-full bg-opacity-0 hover:bg-opacity-50 duration-100 cursor-pointer mt-1 py-2 px-2 md:mx-auto lg2:w-16 lg:w-10 md:w-8">
         <GiSquirrel className=" lg2:h-12 lg2:w-12 lg:h-10 lg:w-10 md:h-8 md:w-8" />
       </div>
-      <Link to="/">
+      <Link to="/home">
         <div className="my-5">
           <SidebarComponent icon={<BiHomeAlt />} text={"Home"} />
         </div>
