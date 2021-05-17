@@ -5,7 +5,7 @@ function SignupModal({ modalOpen, close }) {
   if (!modalOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="z-10 bg-gray-500 absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+    <div className="z-10 bg-gray-500 bg-opacity-70 absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
       <div className="bg-white px-10 py-4 rounded-3xl w-96 h-82">
         <div className="-mt-2 mb-8 text-3xl font-bold mx-auto">
           <h3 className="px-24">Signup</h3>
@@ -42,7 +42,7 @@ function SignupModal({ modalOpen, close }) {
             <h3 className="text-xl font-normal">Signup</h3>
           </button>
           <button
-            className="py-2 px-4 flex justify-center flex-row bg-red-500 rounded-full cursor-pointer hover:bg-red-600 duration-200 w-36"
+            className="py-2 px-4 flex justify-center flex-row border-2 border-red-600 rounded-full cursor-pointer hover:bg-red-400 duration-200 w-36"
             onClick={close}>
             <h3 className="text-xl font-normal">Close</h3>
           </button>

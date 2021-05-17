@@ -3,9 +3,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      backgroundImage: theme => ({
-        "landingpagebkg": "url('./public/images/chitter_landingbkg.jpg')"
-      }),
       flex: {
         0.3: "0 0 30%",
         0.4: "0 0 40%",
@@ -23,6 +20,9 @@ module.exports = {
       },
       screens: {
         lg2: "1152px",
+      },
+      backgroundImage: {
+        "landingimg": "url('../src/images/bg-landingpage.jpg')",
       },
     },
   },
