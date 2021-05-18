@@ -15,10 +15,10 @@ function LandingPage() {
           </div>
           <h1 className="flex justify-center items-center text-7xl">Chitter</h1>
           <div className="flex flex-col">
-            <h1 className="flex justify-center items-center text-3xl mt-4">
-              See what's happening in your forest.
+            <h1 className="flex justify-center items-center text-3xl mt-4 ">
+              See what's popping in your forest 🥜
             </h1>
-            <h1 className="flex justify-center items-center text-3xl mt-20">
+            <h1 className="flex justify-center items-center text-3xl font-bold mt-20">
               Join Chitter now.
             </h1>
           </div>

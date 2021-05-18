@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ChitBtn from "./CheetBtn";
 
-function ChitBoxTop() {
+function ChitBoxTop({addPost}) {
+  const [newPost, setNewPost] = useState("");
+
+  const createPost = (e) => {
+    e.preventDefault();
+    addPost(newPost);
+    setNewPost("");
+  };
+
   return (
     <div className="border-b-8 border-gray-400">
       <form className="mx-8">
@@ -15,11 +23,16 @@ function ChitBoxTop() {
             type="text"
             placeholder="Whats happening?"
             className="w-full pl-6  outline-none text-2xl" //mb-12
+            value={newPost}
+            onChange={(e) => setNewPost(e.target.value)}
           />
         </div>
-        <div className="my-2 w-24 ml-auto">
+        <button
+          type="submit"
+          onClick={createPost}
+          className="my-2 w-24 ml-auto">
           <ChitBtn />
-        </div>
+        </button>
       </form>
     </div>
   );
