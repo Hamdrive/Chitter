@@ -22,7 +22,7 @@ function ChitBoxTop({addPost}) {
           <input
             type="text"
             placeholder="Whats happening?"
-            className="w-full pl-6  outline-none text-2xl" //mb-12
+            className="w-full pl-6 outline-none text-xl" //mb-12
             value={newPost}
             onChange={(e) => setNewPost(e.target.value)}
           />

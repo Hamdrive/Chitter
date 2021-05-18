@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import NewCheet from "./NewCheet";
 import Cheets from "./Cheets";
 import db from "./Firebase";
-import firebase from "firebase"
+import FlipMove from "react-flip-move"
 
-const postTime = () =>{
-  const minute = (Math.floor(Math.random() * 60)).toString() + "m"
-  const hour = (Math.floor(Math.random() * 24)).toString() + "h"
-  const time = [minute, hour]
-  return (time[Math.floor(Math.random() * 2)])
-}
+const postTime = () => {
+  const minute = Math.floor(Math.random() * 60).toString() + "m";
+  const hour = Math.floor(Math.random() * 24).toString() + "h";
+  const time = [minute, hour];
+  return time[Math.floor(Math.random() * 2)];
+};
 
 function MainFeed() {
   const [posts, setPosts] = useState([]);
@@ -21,7 +21,7 @@ function MainFeed() {
   }, []);
 
   const getPosts = () =>
-    postsUser.onSnapshot((snapshot) => 
+    postsUser.onSnapshot((snapshot) =>
       setPosts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -30,11 +30,11 @@ function MainFeed() {
           isVerified: doc.data().isVerified,
           timestamp: doc.data().timestamp,
           content: doc.data().content,
-          media: doc.data().media
+          media: doc.data().media,
         }))
       )
     );
-  
+
   const addPost = (content) => {
     //displayName, userName, isVerified, timestamp, media
     postsUser.add({
@@ -52,19 +52,19 @@ function MainFeed() {
       <div className="h-12 text-2xl font-bold flex items-center pl-8 sticky top-0 border-b-2 border-gray-400 bg-white">
         <h1>Home</h1>
       </div>
-      <NewCheet addPost={addPost}/>
-      {posts.map((post) => (
-        <Cheets
-          displayName={post.displayName}
-          isVerified={post.isVerified}
-          userName={post.userName}
-          timestamp={
-            post.timestamp
-          }
-          content={post.content}
-          media={post.media}
-        />
-      ))}
+      <NewCheet addPost={addPost} />
+      <FlipMove>
+        {posts.map((post) => (
+          <Cheets
+            displayName={post.displayName}
+            isVerified={post.isVerified}
+            userName={post.userName}
+            timestamp={post.timestamp}
+            content={post.content}
+            media={post.media}
+          />
+        ))}
+      </FlipMove>
       {/* <Cheets
         displayName={"Hamza Husein"}
         isVerified={true}

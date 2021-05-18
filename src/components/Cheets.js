@@ -1,10 +1,10 @@
-import React from "react";
+import React, {forwardRef} from "react";
 import { GoVerified } from "react-icons/go";
 import { FaRegComment, FaRetweet, FaRegHeart } from "react-icons/fa";
 
-function Cheets({ displayName, userName, isVerified, timestamp, content, media }) {
+const Cheets = forwardRef(({ displayName, userName, isVerified, timestamp, content, media }, ref) => {
   return (
-    <div className=" mx-8 py-4">
+    <div className="mx-8 py-4" ref={ref}>
       <img
         src="./images/Ham_dp.jpg"
         alt=""
@@ -46,6 +46,6 @@ function Cheets({ displayName, userName, isVerified, timestamp, content, media }
       </div>
     </div>
   );
-}
+})
 
 export default Cheets;
