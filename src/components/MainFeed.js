@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import NewCheet from "./NewCheet";
 import Cheets from "./Cheets";
 import db from "./Firebase";
+import firebase from "firebase"
 import FlipMove from "react-flip-move"
+import uniqid from "uniqid"
 
 const postTime = () => {
   const minute = Math.floor(Math.random() * 60).toString() + "m";
@@ -21,7 +23,7 @@ function MainFeed() {
   }, []);
 
   const getPosts = () =>
-    postsUser.onSnapshot((snapshot) =>
+    postsUser.orderBy("firebaseTimestamp", "desc").onSnapshot((snapshot) =>
       setPosts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -44,6 +46,7 @@ function MainFeed() {
       timestamp: postTime(),
       content: content,
       media: media,
+      firebaseTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
   };
 
@@ -56,6 +59,7 @@ function MainFeed() {
       <FlipMove>
         {posts.map((post) => (
           <Cheets
+            key={uniqid()}
             displayName={post.displayName}
             isVerified={post.isVerified}
             userName={post.userName}
