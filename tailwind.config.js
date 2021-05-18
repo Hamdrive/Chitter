@@ -24,6 +24,10 @@ module.exports = {
       backgroundImage: {
         "landingimg": "url('../src/images/bg-landingpage.jpg')",
       },
+      width: {
+        124: "31rem",
+        320: "80rem",
+      }
     },
   },
   variants: {

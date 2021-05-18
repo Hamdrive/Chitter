@@ -4,7 +4,7 @@ import { FaRegComment, FaRetweet, FaRegHeart } from "react-icons/fa";
 
 const Cheets = forwardRef(({ displayName, userName, isVerified, timestamp, content, media }, ref) => {
   return (
-    <div className="mx-8 py-4" ref={ref}>
+    <div className="mx-8 py-1 my-4 border-b-2 border-gray-500" ref={ref}>
       <img
         src="./images/Ham_dp.jpg"
         alt=""
@@ -31,7 +31,7 @@ const Cheets = forwardRef(({ displayName, userName, isVerified, timestamp, conte
         <div className="mb-3">
           <p className="font-normal">{content}</p>
         </div>
-        {media ? <img src={media} alt="" className="rounded-2xl h-72 w-11/12 " /> : <></>}
+        {media ? <img src={media} alt="" className="rounded-2xl h-72 w-124" /> : <></>}
         <div className="flex justify-around mt-3 text-xl">
           <div className="bg-green-500 bg-opacity-0 hover:bg-opacity-50 cursor-pointer duration-100 p-2 rounded-full">
             <FaRegComment />

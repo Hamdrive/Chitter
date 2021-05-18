@@ -35,7 +35,7 @@ function MainFeed() {
       )
     );
 
-  const addPost = (content) => {
+  const addPost = (content, media) => {
     //displayName, userName, isVerified, timestamp, media
     postsUser.add({
       displayName: "Hamza Husein",
@@ -43,13 +43,13 @@ function MainFeed() {
       isVerified: true,
       timestamp: postTime(),
       content: content,
-      media: null,
+      media: media,
     });
   };
 
   return (
-    <div>
-      <div className="h-12 text-2xl font-bold flex items-center pl-8 sticky top-0 border-b-2 border-gray-400 bg-white">
+    <div className="max-w-2xl">
+      <div className="h-12 text-2xl font-bold flex items-center pl-8 sticky top-0 border-b-2 border-gray-400 bg-white z-10">
         <h1>Home</h1>
       </div>
       <NewCheet addPost={addPost} />

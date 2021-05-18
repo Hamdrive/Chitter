@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import ChitBtn from "./CheetBtn";
 
-function ChitBoxTop({addPost}) {
+function ChitBoxTop({ addPost }) {
   const [newPost, setNewPost] = useState("");
+  const [newMedia, setNewMedia] = useState("");
 
   const createPost = (e) => {
     e.preventDefault();
-    addPost(newPost);
+    if (newPost && newMedia) {
+      addPost(newPost, newMedia);
+    }
     setNewPost("");
+    setNewMedia("");
   };
 
   return (
@@ -19,13 +23,22 @@ function ChitBoxTop({addPost}) {
             alt=""
             className="w-14 h-14 rounded-full"
           />
-          <input
-            type="text"
-            placeholder="Whats happening?"
-            className="w-full pl-6 outline-none text-xl" //mb-12
-            value={newPost}
-            onChange={(e) => setNewPost(e.target.value)}
-          />
+          <div className="flex flex-col w-full pl-6 text-xl">
+            <input
+              type="text"
+              placeholder="Whats happening?"
+              className="outline-none my-2"
+              value={newPost}
+              onChange={(e) => setNewPost(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Enter media link here"
+              className="outline-none my-2"
+              value={newMedia}
+              onChange={(e) => setNewMedia(e.target.value)}
+            />
+          </div>
         </div>
         <button
           type="submit"
