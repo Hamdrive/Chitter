@@ -7,9 +7,7 @@ function ChitBoxTop({ addPost }) {
 
   const createPost = (e) => {
     e.preventDefault();
-    if (newPost || newMedia) {
-      addPost(newPost, newMedia);
-    }
+    addPost(newPost, newMedia);
     setNewPost("");
     setNewMedia("");
   };

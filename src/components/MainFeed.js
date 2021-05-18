@@ -6,13 +6,6 @@ import firebase from "firebase"
 import FlipMove from "react-flip-move"
 import uniqid from "uniqid"
 
-const postTime = () => {
-  const minute = Math.floor(Math.random() * 60).toString() + "m";
-  const hour = Math.floor(Math.random() * 24).toString() + "h";
-  const time = [minute, hour];
-  return time[Math.floor(Math.random() * 2)];
-};
-
 function MainFeed() {
   const [posts, setPosts] = useState([]);
   const postsUser = db.collection("posts");
@@ -22,7 +15,7 @@ function MainFeed() {
     // eslint-disable-next-line
   }, []);
 
-  const getPosts = () =>
+  const getPosts = () => {
     postsUser.orderBy("firebaseTimestamp", "desc").onSnapshot((snapshot) =>
       setPosts(
         snapshot.docs.map((doc) => ({
@@ -36,9 +29,16 @@ function MainFeed() {
         }))
       )
     );
+  }
 
-  const addPost = (content, media) => {
-    //displayName, userName, isVerified, timestamp, media
+  const postTime = () => {
+    const minute = Math.floor(Math.random() * 60).toString() + "m";
+    const hour = Math.floor(Math.random() * 24).toString() + "h";
+    const time = [minute, hour];
+    return time[Math.floor(Math.random() * 2)];
+  };
+
+  const addPost = (content, media=null) => {
     postsUser.add({
       displayName: "Hamza Husein",
       userName: "@itsHamHere",
@@ -69,30 +69,6 @@ function MainFeed() {
           />
         ))}
       </FlipMove>
-      {/* <Cheets
-        displayName={"Hamza Husein"}
-        isVerified={true}
-        userName={"@itsHamHere"}
-        timestamp={"48min"}
-        content={"Me after opening too many tabs in Chrome again...👀"}
-        media={"./images/Moss-fire.gif"}
-      />
-      <Cheets
-        displayName={"Hamza Husein"}
-        isVerified={true}
-        userName={"@itsHamHere"}
-        timestamp={"4hr"}
-        content={"When someone tells me they haven't watched IT crowd"}
-        media={"./images/Roy-wtf.gif"}
-      />
-      <Cheets
-        displayName={"Hamza Husein"}
-        isVerified={true}
-        userName={"@itsHamHere"}
-        timestamp={"29min"}
-        content={"How long do you think it takes Richmond to apply makeup?"}
-        media={"./images/Richmond.gif"}
-      /> */}
     </div>
   );
 }

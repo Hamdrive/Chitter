@@ -37,11 +37,6 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      {/* <img
-        className="w-full h-screen"
-        src="../images/chitter_landingbkg.jpg"
-        alt=""
-      /> */}
       <SignupModal
         modalOpen={signupModalOpen}
         close={() => setSignupModalOpen(false)}
