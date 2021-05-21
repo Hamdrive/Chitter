@@ -1,14 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { auth } from "./Firebase";
+import firebase from "firebase";
+import GoogleButton from "react-google-button";
+
+
+const signInGoogle = () => {
+  auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+};
 
 function SignupModal({ modalOpen, close }) {
   if (!modalOpen) return null;
 
   return ReactDOM.createPortal(
     <div className="z-10 bg-gray-500 bg-opacity-70 absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
-      <div className="bg-white px-10 py-4 rounded-3xl w-96 h-82">
+      <div className="bg-white px-10 py-6 rounded-3xl w-96 h-82">
         <div className="-mt-2 mb-8 text-3xl font-bold mx-auto">
           <h3 className="px-24">Signup</h3>
+          <div className="flex justify-center mt-4">
+            <GoogleButton onClick={signInGoogle} />
+          </div>
         </div>
         <div className="mt-4 text-2xl py-2 px-2 border-gray-600 border-2 rounded-xl outline-none">
           <input

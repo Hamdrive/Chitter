@@ -26,7 +26,7 @@ function LandingPage() {
           <div className="flex mt-20 flex-col">
             <button
               className="my-4 mx-auto py-2 px-4 flex justify-center flex-row bg-green-500 rounded-full cursor-pointer hover:bg-green-600 duration-200 w-72 font-medium text-xl"
-              onClick={() => setTimeout(setSignupModalOpen(true), 3000)}>
+              onClick={() => setSignupModalOpen(true)}>
               Signup
             </button>
             <button
