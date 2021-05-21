@@ -40,8 +40,8 @@ function MainFeed() {
 
   const addPost = (content, media=null) => {
     postsUser.add({
-      displayName: "Hamza Husein",
-      userName: "@itsHamHere",
+      displayName: "Phat Gus",
+      userName: "@PhantasticGus",
       isVerified: true,
       timestamp: postTime(),
       content: content,
