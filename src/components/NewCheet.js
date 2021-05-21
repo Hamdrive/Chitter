@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ChitBtn from "./CheetBtn";
+import dispImg from "../images/dp.jpg";
 
 function ChitBoxTop({ addPost }) {
   const [newPost, setNewPost] = useState("");
@@ -17,7 +18,7 @@ function ChitBoxTop({ addPost }) {
       <form className="mx-8">
         <div className="flex flex-row border-b-2 border-gray-400 py-2">
           <img
-            src="./images/Ham_dp.jpg"
+            src={dispImg}
             alt=""
             className="w-14 h-14 rounded-full"
           />

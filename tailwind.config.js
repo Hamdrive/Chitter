@@ -22,7 +22,7 @@ module.exports = {
         lg2: "1152px",
       },
       backgroundImage: {
-        "landingimg": "url('../src/images/bg-landingpage.jpg')",
+        "landingimg": "url('images/bg-landingpage.jpg')", 
       },
       width: {
         124: "31rem",
