@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import LoginModal from "../components/LoginModal";
-import SignupModal from "../components/SignupModal";
-import { GiSquirrel} from "react-icons/gi";
+import React from "react";
+import { GiSquirrel } from "react-icons/gi";
+import { Link } from "react-router-dom";
+
+
 
 function LandingPage() {
-  const [signupModalOpen, setSignupModalOpen] = useState(false);
-  const [loginModalOpen, setLoginModalOpen] = useState(false);
+
   return (
     <div>
       <div className="flex flex-col justify-center items-center min-h-screen min-w-full bg-landingimg">
@@ -24,27 +24,19 @@ function LandingPage() {
           </div>
 
           <div className="flex mt-20 flex-col">
-            <button
-              className="my-4 mx-auto py-2 px-4 flex justify-center flex-row bg-green-500 rounded-full cursor-pointer hover:bg-green-600 duration-200 w-72 font-medium text-xl"
-              onClick={() => setSignupModalOpen(true)}>
-              Signup
-            </button>
-            <button
-              className="my-4 mx-auto py-2 px-4 flex justify-center flex-row border-2 border-green-600 rounded-full cursor-pointer hover:bg-green-400 duration-200 w-72 font-medium text-xl"
-              onClick={() => setLoginModalOpen(true)}>
-              Login
-            </button>
+            <Link to="/signup">
+              <div className="my-4 mx-auto py-2 px-4 flex justify-center flex-row bg-green-500 rounded-full cursor-pointer hover:bg-green-600 duration-200 w-72 font-medium text-xl">
+                Signup
+              </div>
+            </Link>
+            <Link to="/login">
+              <div className="my-4 mx-auto py-2 px-4 flex justify-center flex-row border-2 border-green-600 rounded-full cursor-pointer hover:bg-green-400 duration-200 w-72 font-medium text-xl">
+                Login
+              </div>
+            </Link>
           </div>
         </div>
       </div>
-      <SignupModal
-        modalOpen={signupModalOpen}
-        close={() => setSignupModalOpen(false)}
-      />
-      <LoginModal
-        modalOpen={loginModalOpen}
-        close={() => setLoginModalOpen(false)}
-      />
     </div>
   );
 }

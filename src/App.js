@@ -6,6 +6,8 @@ import Messages from "./views/Messages";
 import Explore from "./views/Explore";
 import Notifications from "./views/Notifications";
 import Bookmarks from "./views/Bookmarks";
+import SignupModal from "../src/components/SignupModal"
+import LoginModal from "../src/components/LoginModal";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -34,6 +36,12 @@ function App() {
             </Route>
             <Route path="/notifications">
               <Notifications />
+            </Route>
+            <Route path="/signup">
+              <SignupModal />
+            </Route>
+            <Route path="/login">
+              <LoginModal />
             </Route>
           </Switch>
         </Router>

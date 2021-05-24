@@ -1,24 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { auth } from "./Firebase";
 import firebase from "firebase";
 import GoogleButton from "react-google-button";
+import { useHistory } from "react-router-dom";
 
-
-const signInGoogle = () => {
+const signupGoogle = () => {
   auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 };
 
-function SignupModal({ modalOpen, close }) {
-  if (!modalOpen) return null;
+function SignupModal() {
+  let history = useHistory();
 
-  return ReactDOM.createPortal(
+  return (
     <div className="z-10 bg-gray-500 bg-opacity-70 absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
       <div className="bg-white px-10 py-6 rounded-3xl w-96 h-82">
         <div className="-mt-2 mb-8 text-3xl font-bold mx-auto">
           <h3 className="px-24">Signup</h3>
           <div className="flex justify-center mt-4">
-            <GoogleButton onClick={signInGoogle} />
+            <GoogleButton onClick={signupGoogle} />
           </div>
         </div>
         <div className="mt-4 text-2xl py-2 px-2 border-gray-600 border-2 rounded-xl outline-none">
@@ -54,13 +53,12 @@ function SignupModal({ modalOpen, close }) {
           </button>
           <button
             className="py-2 px-4 flex justify-center flex-row border-2 border-red-600 rounded-full cursor-pointer hover:bg-red-400 duration-200 w-36"
-            onClick={close}>
+            onClick={() => history.goBack()}>
             <h3 className="text-xl font-normal">Close</h3>
           </button>
         </div>
       </div>
-    </div>,
-    document.getElementById("modal")
+    </div>
   );
 }
 
