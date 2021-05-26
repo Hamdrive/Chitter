@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
+import { auth } from "./Firebase";
+import { useHistory } from "react-router-dom";
+
 import NewCheet from "./NewCheet";
 import Cheets from "./Cheets";
 import db from "./Firebase";
-import firebase from "firebase"
-import FlipMove from "react-flip-move"
-import uniqid from "uniqid"
+import firebase from "firebase";
+import FlipMove from "react-flip-move";
+import uniqid from "uniqid";
 
 function MainFeed() {
+  let history = useHistory();
+
+  auth.onAuthStateChanged(function (user) {
+    if (!user) {
+      history.push("/");
+    }
+  });
+
   const [posts, setPosts] = useState([]);
-  const postsUser = db.collection("posts");
+  const postsUser = db.collection(`users/${auth.currentUser.uid}/posts`);
 
   useEffect(() => {
     getPosts();
@@ -29,7 +40,7 @@ function MainFeed() {
         }))
       )
     );
-  }
+  };
 
   const postTime = () => {
     const minute = Math.floor(Math.random() * 60).toString() + "m";
@@ -38,7 +49,7 @@ function MainFeed() {
     return time[Math.floor(Math.random() * 2)];
   };
 
-  const addPost = (content, media=null) => {
+  const addPost = (content, media = null) => {
     postsUser.add({
       displayName: "Phat Gus",
       userName: "@PhantasticGus",

@@ -3,6 +3,8 @@ import firebase from "firebase";
 import GoogleButton from "react-google-button";
 import { useHistory } from "react-router-dom";
 import { auth } from "./Firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Home from "../views/Home"
 
 const loginGoogle = () =>{
   auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
@@ -10,6 +12,8 @@ const loginGoogle = () =>{
 
 function LoginModal() {
   let history = useHistory()
+
+
   
   return (
     <div className="z-10 bg-gray-500 bg-opacity-70 absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
@@ -44,7 +48,7 @@ function LoginModal() {
           </button>
           <button
             className="py-2 px-4 flex justify-center flex-row border-2 border-red-600 rounded-full cursor-pointer hover:bg-red-400 duration-200 w-36 "
-            onClick={() => history.goBack()}>
+            onClick={() => history.push("/")}>
             <h3 className="text-xl font-normal">Close</h3>
           </button>
         </div>

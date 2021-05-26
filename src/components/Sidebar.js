@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { GiSquirrel, GiAcorn } from "react-icons/gi";
 import {} from "react-icons/fa";
 import SidebarComponent from "./SidebarComponent";
+import CheetBtn from "./CheetBtn";
+import LogoutBtn from "./LogoutBtn";
 import {
   BiHomeAlt,
   BiHash,
@@ -10,8 +12,8 @@ import {
   BiMessageSquareDetail,
   BiBookmark,
   BiUser,
+  BiLogOut,
 } from "react-icons/bi";
-import ChitBtn from "./CheetBtn";
 
 function Sidebar() {
   return (
@@ -54,7 +56,11 @@ function Sidebar() {
       </Link>
 
       <div className="my-5 mt-6 ">
-        <ChitBtn icon={<GiAcorn />} />
+        <CheetBtn icon={<GiAcorn />} />
+      </div>
+
+      <div className="my-5 mt-6 ">
+        <LogoutBtn icon={<BiLogOut />} />
       </div>
     </div>
   );
