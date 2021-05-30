@@ -2,8 +2,6 @@ import React from "react";
 import { GiSquirrel } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { auth } from "../components/Firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import Home from "./Home";
 import { useHistory } from "react-router-dom";
 
 function LandingPage() {

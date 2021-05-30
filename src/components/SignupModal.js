@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import { auth } from "./Firebase";
 import firebase from "firebase";
 import GoogleButton from "react-google-button";
+
 import { useHistory } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Home from "../views/Home";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const signupGoogle = () => {
   auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -15,8 +15,19 @@ function SignupModal() {
   let history = useHistory();
   const [user] = useAuthState(auth);
 
+  const userEmail = useRef(null);
+  const userPass = useRef(null);
+  const userName = useRef(null)
+
+  const signupEmail = () => {
+    auth.createUserWithEmailAndPassword(
+      userEmail.current.value,
+      userPass.current.value
+    );
+  };
+
   return user ? (
-    <Link to="/home"></Link>
+    <Link to="/home" ></Link>
   ) : (
     <div className="z-10 bg-gray-500 bg-opacity-70 absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
       <div className="bg-white px-10 py-6 rounded-3xl w-96 h-82">
@@ -30,6 +41,7 @@ function SignupModal() {
           <div className="mt-4 text-2xl py-2 px-2 border-gray-600 border-2 rounded-xl outline-none">
             <input
               className="outline-none"
+              ref={userEmail}
               type="text"
               name=""
               id=""
@@ -39,6 +51,7 @@ function SignupModal() {
           <div className="my-4 text-2xl py-2 px-2 border-gray-600 border-2 rounded-xl outline-none">
             <input
               className="outline-none"
+              ref={userName}
               type="text"
               name=""
               id=""
@@ -48,6 +61,7 @@ function SignupModal() {
           <div className="my-4 text-2xl py-2 px-2 border-gray-600 border-2 rounded-xl outline-none">
             <input
               className="outline-none"
+              ref={userPass}
               type="password"
               name=""
               id=""
@@ -56,7 +70,9 @@ function SignupModal() {
           </div>
         </form>
         <div className="mt-12 flex justify-around">
-          <button className="py-2 px-4 flex justify-center flex-row bg-green-500 rounded-full cursor-pointer hover:bg-green-600 duration-200 w-36">
+          <button
+            className="py-2 px-4 flex justify-center flex-row bg-green-500 rounded-full cursor-pointer hover:bg-green-600 duration-200 w-36"
+            onClick={() => signupEmail()}>
             <h3 className="text-xl font-normal">Signup</h3>
           </button>
           <button
