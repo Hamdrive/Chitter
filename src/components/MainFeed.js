@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "./Firebase";
 import { useHistory } from "react-router-dom";
-
 import NewCheet from "./NewCheet";
 import Cheets from "./Cheets";
 import db from "./Firebase";
 import firebase from "firebase";
 import FlipMove from "react-flip-move";
-import uniqid from "uniqid";
 
 function MainFeed() {
   let history = useHistory();
 
-  auth.onAuthStateChanged(function (user) {
-    if (!user) {
-      history.push("/");
-    }
-  });
-
   const [posts, setPosts] = useState([]);
-  const postsUser = db.collection(`users/${auth.currentUser.uid}/posts`);
 
   useEffect(() => {
-    getPosts();
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        getPosts();
+      } else {
+        history.push("/");
+      }
+    });
     // eslint-disable-next-line
   }, []);
+
+  
+  const postsUser = db.collection(`users/${auth.currentUser.uid}/posts`);
 
   const getPosts = () => {
     postsUser.orderBy("firebaseTimestamp", "desc").onSnapshot((snapshot) =>
@@ -61,16 +61,17 @@ function MainFeed() {
     });
   };
 
+
   return (
     <div className="max-w-2xl">
       <div className="h-12 text-2xl font-bold flex items-center pl-8 sticky top-0 border-b-2 border-gray-400 bg-white z-10">
         <h1>Home</h1>
       </div>
       <NewCheet addPost={addPost} />
-      <FlipMove>
+      <FlipMove enterAnimation={"elevator"}>
         {posts.map((post) => (
           <Cheets
-            key={uniqid()}
+            key={post.id}
             displayName={post.displayName}
             isVerified={post.isVerified}
             userName={post.userName}
