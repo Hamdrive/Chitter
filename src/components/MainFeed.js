@@ -64,8 +64,8 @@ function MainFeed() {
 
   return (
     <div className="max-w-2xl">
-      <div className="h-12 text-2xl font-bold flex items-center pl-8 sticky top-0 border-b-2 border-gray-400 bg-white z-10">
-        <h1>Home</h1>
+      <div className="h-12  flex items-center pl-8 sticky top-0 border-b-2 border-gray-400 bg-white z-10">
+        <h1 className="text-2xl font-bold">Home</h1>
       </div>
       <NewCheet addPost={addPost} />
       <FlipMove enterAnimation={"elevator"}>
