@@ -28,7 +28,7 @@ function MainFeed() {
 
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
-  const [postsUser, setPostsUser] = useState();
+  const [postsUser, setPostsUser] = useState(null);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -42,12 +42,13 @@ function MainFeed() {
   }, []);
 
   useEffect(() => {
-    setPostsUser(`db.collection(users/${auth.currentUser?.uid}/posts)`);
+    if (!user) return;
+    setPostsUser(`db.collection(users/${user?.uid}/posts)`);
   }, [user]);
 
   useEffect(() => {
-    if(!postsUser) return
-    console.log(postsUser)
+    if (!postsUser?.orderBy) return;
+    console.log(postsUser);
     getPosts();
   }, [postsUser]);
 
