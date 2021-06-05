@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { auth } from "./Firebase";
 import { useHistory } from "react-router-dom";
 import NewCheet from "./NewCheet";
@@ -9,13 +9,31 @@ import FlipMove from "react-flip-move";
 
 function MainFeed() {
   let history = useHistory();
+  // const [postsUser, setPostsUser] = useState("");
+
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       console.log(user)
+  //       const link = db.collection(`users/${auth.currentUser?.uid}/posts`);
+  //       setPostsUser(link);
+  //       console.log(postsUser)
+  //       getPosts();
+  //     } else {
+  //       history.push("/");
+  //     }
+  //   });
+  //   // eslint-disable-next-line
+  // }, []);
 
   const [posts, setPosts] = useState([]);
+  const [user, setUser] = useState();
+  const [postsUser, setPostsUser] = useState();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        getPosts();
+        setUser(user);
       } else {
         history.push("/");
       }
@@ -23,8 +41,15 @@ function MainFeed() {
     // eslint-disable-next-line
   }, []);
 
-  
-  const postsUser = db.collection(`users/${auth.currentUser.uid}/posts`);
+  useEffect(() => {
+    setPostsUser(`db.collection(users/${auth.currentUser?.uid}/posts)`);
+  }, [user]);
+
+  useEffect(() => {
+    if(!postsUser) return
+    console.log(postsUser)
+    getPosts();
+  }, [postsUser]);
 
   const getPosts = () => {
     postsUser.orderBy("firebaseTimestamp", "desc").onSnapshot((snapshot) =>
@@ -60,7 +85,6 @@ function MainFeed() {
       firebaseTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
   };
-
 
   return (
     <div className="max-w-2xl">

@@ -1,12 +1,11 @@
 import React, { forwardRef, useState } from "react";
 import { GoVerified } from "react-icons/go";
 import { FaRegComment, FaRetweet, FaRegHeart } from "react-icons/fa";
-import { IconContext } from "react-icons";
 import dispImg from "../images/dp.jpg";
 
 const Cheets = forwardRef(
   ({ displayName, userName, isVerified, timestamp, content, media }, ref) => {
-    const [like, setLike] = useState(true);
+
     return (
       <div className="mx-8 py-1 my-4 border-b-2 border-gray-500" ref={ref}>
         <img src={dispImg} alt="" className="w-14 h-14 rounded-full " />
