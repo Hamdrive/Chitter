@@ -41,19 +41,29 @@ function MainFeed() {
     // eslint-disable-next-line
   }, []);
 
+  // useEffect(() => {
+  //   if (!user) return;
+  //   console.log({ posts });
+  // }, [posts]);
+
   useEffect(() => {
+    // console.log({ user });
     if (!user) return;
-    setPostsUser(`db.collection(users/${user?.uid}/posts)`);
+    setPostsUser(db.collection(`users/${user?.uid}/posts`));
   }, [user]);
 
   useEffect(() => {
-    if (!postsUser?.orderBy) return;
+    // console.log({ postsUser });
+    if (!postsUser) return;
     console.log(postsUser);
     getPosts();
   }, [postsUser]);
 
   const getPosts = () => {
-    postsUser.orderBy("firebaseTimestamp", "desc").onSnapshot((snapshot) =>
+    console.log("getPosts()");
+    postsUser.orderBy("firebaseTimestamp", "desc").onSnapshot((snapshot) => {
+      // const newPosts = snapshot.docs.map((d) => d.data());
+      // console.log({ newPosts, docs: snapshot.docs });
       setPosts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -64,8 +74,8 @@ function MainFeed() {
           content: doc.data().content,
           media: doc.data().media,
         }))
-      )
-    );
+      );
+    });
   };
 
   const postTime = () => {
